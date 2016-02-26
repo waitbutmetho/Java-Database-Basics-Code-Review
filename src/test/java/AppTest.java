@@ -58,4 +58,21 @@ public class AppTest extends FluentTest {
     goTo(path);
     assertThat((pageSource()).contains("Stylist 1") == false);
   }
+
+  @Test
+  public void clientIsDeletedTest() {
+    goTo("http://localhost:4567/");
+    Stylist myStylist = new Stylist("Stylist 1");
+    myStylist.save();
+    String stylistPath = String.format("http://localhost:4567/%d", myStylist.getId());
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Stylist 1");
+    Client clients = new Client("Client 1", myStylist.getId());
+    clients.save();
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Client 1");
+    clients.delete(clients.getId());
+    goTo(stylistPath);
+    assertThat((pageSource()).contains("Client 1") == false);
+  }
 }
