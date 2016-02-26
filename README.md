@@ -1,6 +1,6 @@
 #Hair Salon App
 
-####Creates a simple app that allows adding of stylists after that, one can add clients to said stylists, February 26, 2016.
+####Creates a simple app for adding stylists and clients February 26, 2016.
 
 ####By Joshua Gustafson
 
