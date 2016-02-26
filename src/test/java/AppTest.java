@@ -46,4 +46,16 @@ public class AppTest extends FluentTest {
     goTo(stylistPath);
     assertThat(pageSource()).contains("Client 1");
   }
+
+  @Test
+  public void stylistIsDeletedTest() {
+    String path = "http://localhost:4567/";
+    goTo(path);
+    Stylist myStylist = new Stylist("Stylist 1");
+    myStylist.save();
+    goTo(path);
+    myStylist.deleteStylist(myStylist.getId());
+    goTo(path);
+    assertThat((pageSource()).contains("Stylist 1") == false);
+  }
 }
