@@ -43,4 +43,5 @@ public boolean equals(Object otherClient){
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }
+  
 }
