@@ -6,11 +6,11 @@ addClient.vtl
 
 
 #foreach($client in $clients)
-<li>$client.getName()</li>
+<li class="btn btn-warning">$client.getName()</li>
 <form action="/delete/client/$client.getId()" method="post">
 <input id="stylistId" name="stylistId" type=hidden value="$stylist.getId()">
 <button type="submit" id="$client.getId()" name="$client.getId()" class="btn btn-danger">
-  Delete Client</button>
+  Delete $client.getName()</button>
 </form>
 #end
 </ul>
@@ -18,9 +18,9 @@ addClient.vtl
 
 <form action="/:id" method="post">
   <input id="stylisId" name="stylistId" type=hidden value="$stylist.getId()">
-  <label>Add a Client</label>
+  <label>Add a new Client</label>
   <input type="text" name="clientName" id="clientName" required>
-  <button type="submit" name="AddClientButton" class="btn btn-info">Submit</button>
+  <button type="submit" name="AddClientButton" class="btn btn-success">Add</button>
 </form>
 
-<a href="/">Go Back Home</a>
+<a class="btn btn-info" href="/">Go Back Home</a>
